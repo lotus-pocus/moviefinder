@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Movie from "./components/Movie";
+import { useState, useEffect } from "react";
+import { Routes, Route } from 'react-router-dom';
+
+
+const movieDBAPI = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b8299fb40b2620a722c730e28135abd7&page=1";
+
+
+const search_API = "https://api.themoviedb.org/3/search/movie?&api_key=b8299fb40b2620a722c730e28135abd7&query="
 
 function App() {
+  const [movies, setmovies] = useState([]);
+
+  useEffect(() => {
+    fetch(movieDBAPI)
+      .then(res => res.json())
+      .then(data => {
+        setmovies(data.results);
+      });
+
+  }, [])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+    <>
+      <header>
+        <button onClick={Header}>Randomize</button>
       </header>
-    </div>
+
+      <div className="movie-container">
+
+        {movies.length > 0 &&
+          movies.map((movie) => <Movie key=
+            {movie.id} {...movie} />)}
+
+      </div>
+    </>
   );
 }
 
