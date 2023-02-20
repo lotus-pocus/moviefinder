@@ -1,20 +1,28 @@
 import Genres from "./components/Genre.json";
 import { useState, useEffect } from "react";
+import movieList from "./movieList.json";
 
 function Random() {
     const [randomize, setRandomize] = useState(true);
 
 
-    const toggle
 
-    function handleClick () {
-        console.log(Genres);
-        const randomGenre = Genres[Math.floor(Math.random() *Genres.length)].id
-        console.log(randomGenre);
-      };
+    function handleClick() {
+        console.log(movieList);
+        const randomMovie = [Math.floor(Math.random() * movieList.length)].id
+
+        setRandomize(randomMovie);
+    };
 
     return (
-        <button onClick={handleClick}>Randomize</button>
+
+        <div className="randomizer" style={{ background: "yellow" }}>
+            <h1>{randomize}</h1>
+
+            <button onClick={handleClick}>Randomize</button>
+        
+
+        </div>
     )
 }
 

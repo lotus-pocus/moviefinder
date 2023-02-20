@@ -28,12 +28,15 @@ code {
 }
 
 .movie img {
-  max-width: 100%;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
 }
 
 .movie-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .movie-info {
@@ -74,13 +77,44 @@ Header {
   justify-content: flex-end;
 }
 
-button {
+/* button {
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  background-color: rgb(65, 219, 247);
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(183, 216, 245);
   color: white;
   font-size: 20px;
+  margin-left: 50px;
+} */
+
+.search {
+  font-family: inherit;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background-color: rgb(183, 216, 245);
+  border: none;
+  padding: 0.5rem 1.5rem;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.tag {
+  background-color: whitesmoke;
+  padding: 0.5rem;
+  border-radius: 80px;
+  font-weight: bold;
+}
+
+.tag.green {
+color: green;
+}
+.tag.orange {
+color: rgb(247, 142, 45);
+}
+.tag.red {
+color: red;
 }
