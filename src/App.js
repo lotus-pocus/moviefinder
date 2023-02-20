@@ -1,7 +1,7 @@
-import Header from "./components/Header";
+
 import Movie from "./components/Movie";
 import { useState, useEffect } from "react";
-import { Routes, Route } from 'react-router-dom';
+
 
 
 const movieDBAPI = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b8299fb40b2620a722c730e28135abd7&page=1";
